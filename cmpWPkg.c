@@ -20,7 +20,7 @@
  * name and version of this package
  */
 
-static char packageName[]    = CMP_WRITER_PACKAGE;
+static char packageName[]    = PACKAGE_NAME;
 static char packageVersion[] = PACKAGE_VERSION;
 
 /*
