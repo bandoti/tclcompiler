@@ -3018,14 +3018,8 @@ CompileOneProcBody(interp, infoPtr, ctxPtr, compEnvPtr)
          * variables for the argument.
          */
 
-        localPtr = (CompiledLocal *) ckalloc((unsigned)
-                (sizeof(CompiledLocal)
-                
-#if defined(TCLFLEXARRAY) && (TCLFLEXARRAY + 0) > 0
-                - sizeof(localPtr->name)
-#endif
+        localPtr = (CompiledLocal *) ckalloc(TclOffset(CompiledLocal, name) + 1U + nameLength);
 
-                        + nameLength+1));
         if (procPtr->firstLocalPtr == NULL) {
             procPtr->firstLocalPtr = procPtr->lastLocalPtr = localPtr;
         } else {
